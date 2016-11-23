@@ -1,0 +1,14 @@
+{
+  "name": "nextjs-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "maria ines parnisari",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.2",
+    "next": "^1.1.2"
+  },
+  "scripts": {
+    "dev": "next"
+  }
+}

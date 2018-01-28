@@ -1,9 +1,6 @@
 import React from 'react'
 import posts from '../data/posts'
 
-// function to style properties
-import { style } from 'next/css'
-
 // client side transitions
 import Link from 'next/link'
 
@@ -18,23 +15,25 @@ export default class extends React.Component {
   render() {
     return (
       <div>
-        <div className={style(styles.header)}>
+        <div className='header'>
           <h3> Game of Thrones Characters </h3>
         </div>
-        <table className={style(styles.table)}>
+        <table>
           <thead>
             <tr>
-              <th className={style(styles.th)}>Character</th>
-              <th className={style(styles.th)}>Real name</th>
+              <th>Character</th>
+              <th>Real name</th>
             </tr>
           </thead>
           <tbody>
             {
               this.props.posts.map((post, i) => (
                 <tr key={i}>
-                  <td className={style(styles.td)}>{post.codeName}</td>
-                  <td className={style(styles.td)}>
-                    <Link href={`/account?id=${post.id}`}>{post.realName}</Link>
+                  <td>{post.codeName}</td>
+                  <td>
+                    <Link href={`/account?id=${post.id}`}>
+                      <a>{post.realName}</a>
+                    </Link>
                   </td>
                 </tr>
               ))
@@ -43,60 +42,5 @@ export default class extends React.Component {
         </table>
       </div>
     )
-  }
-}
-
-const styles = {
-  th: {
-    background: '#00cccc',
-    color: '#fff',
-    textTransform: 'uppercase',
-    fontSize: '12px',
-    padding: '12px 35px',
-  },
-
-  header: {
-    font: '15px Segoe UI',
-    textAlign: 'center'
-  },
-
-  table: {
-    fontFamily: 'Segoe UI',
-    margin: '25px auto',
-    borderCollapse: 'collapse',
-    border: '1px solid #eee',
-    borderBottom: '2px solid #00cccc'
-  },
-
-  td: {
-    color: '#999',
-    border: '1px solid #eee',
-    padding: '12px 35px',
-    borderCollapse: 'collapse'
-  },
-
-  list: {
-    padding: '50px',
-    textAlign: 'center'
-  },
-
-  photo: {
-    display: 'inline-block'
-  },
-
-  photoLink: {
-    color: '#333',
-    verticalAlign: 'middle',
-    cursor: 'pointer',
-    background: '#eee',
-    display: 'inline-block',
-    width: '250px',
-    height: '250px',
-    lineHeight: '250px',
-    margin: '10px',
-    border: '2px solid transparent',
-    ':hover': {
-      borderColor: 'blue'
-    }
   }
 }
